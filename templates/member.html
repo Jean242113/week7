@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員頁面</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+    <script src="/static/script.js" defer></script>
+</head>
+
+<body>
+    <div class="header">歡迎光臨，這是會員頁</div>
+    <div class="container">
+        <h3 id="welcome">{{ name }}, 歡迎登入系統~</h3>
+        <form action="/signout" method="get">
+            <button type="submit">登出系統</button>
+        </form>
+        <br>
+        <h3>查詢會員姓名</h3>
+        <div class="inline-container">
+            <input type="text" id="search_name" required></input>
+        </div>
+        <button onclick="membersearch()">查詢</button>
+        <div id="member_search">
+            <p id="resultText"></p>
+        </div>
+        <br>
+        <h3>更新我的姓名</h3>
+        <div class="inline-container">
+            <input type="text" id="update_name" required></input>
+        </div>
+        <button onclick="updatename()">更新</button>
+        <div id="member_update">
+            <p id="updateResult"></p>
+        </div>
+        <br>
+        <h3>快來留言吧~</h3>
+        <form action="/createMessage" method="post">
+            <div class="inline-container">
+                <label for="message">內容</label>
+                <input type="text" name="message" required></input>
+            </div>
+            <button type="submit">送出</button>
+        </form>
+
+        <div class="messages">
+            {% for message in messages %}
+            <div class="message">
+                <div class="inline-container"></div>
+                <label>{{ message.name }}: {{ message.content }}</label>
+                {% if message.member_id == user_id %}
+                <button class="delete-btn" onclick="deleteMessage({{ message.message_id }})"></button>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
+    </div>
+</body>
+
+</html>

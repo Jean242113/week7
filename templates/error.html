@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ header }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+
+<body>
+    <div class="header">{{ header }}</div>
+    <div class="container">
+        <p>{{ message }}</p>
+        <form action="/signout" method="get">
+            <button type="submit">返回首頁</button>
+        </form>
+    </div>
+
+
+</body>
+
+</html>

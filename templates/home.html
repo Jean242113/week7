@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入頁面</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+    <script src="/static/script.js" defer></script>
+</head>
+
+<body>
+    <!-- 滿版標題區塊 -->
+    <div class="header">歡迎光臨，請註冊登入系統</div>
+
+    <!-- 登入區塊 -->
+    <div class="container">
+        <h3>註冊帳號</h3>
+        <form action="/signup" method="post" onsubmit="validateForm(event)">
+            <div class="inline-container">
+                <label for="name">姓名</label>
+                <input type="text" name="name" id="name" required>
+            </div>
+            <div class="inline-container">
+                <label for="username">帳號</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div class="inline-container">
+                <label for="password">密碼</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <button type="submit">註冊</button>
+        </form>
+        <br>
+        <h3>登入帳號</h3>
+        <form action="/signin" method="post" onsubmit="validateForm(event)">
+            <div class="inline-container">
+                <label for="username">帳號</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div class="inline-container">
+                <label for="password">密碼</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <button type="submit">登入</button>
+        </form>
+    </div>
+
+
+</body>
+
+</html>
