@@ -143,10 +143,10 @@ def update_member(request: Request, request_data: UpdateMember):
             con.commit()
             con.close()
             request.session["NAME"] = name
-            return JSONResponse(content={"ok": "True"})  # 回傳 JSON 資料
+            return JSONResponse(content={"ok": True})  # 回傳 JSON 資料
         except Exception as e:
             logging.error(f"API Error: {e}")
-            return JSONResponse(content={"error": "True"}, status_code=500)
+            return JSONResponse(content={"error": True}, status_code=500)
 
 
 @app.post("/createMessage")

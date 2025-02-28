@@ -27,7 +27,7 @@ const updatename = function () {
         .then((res) => res.json())
         .then((data) => {
             const result = document.getElementById("updateResult");
-            if (data != null && data.ok == "True") {
+            if (data != null && data.ok == true) {
                 result.innerHTML = "更新成功";
                 document.getElementById("welcome").innerHTML = update_name + ", 歡迎登入系統~";
             } else {
